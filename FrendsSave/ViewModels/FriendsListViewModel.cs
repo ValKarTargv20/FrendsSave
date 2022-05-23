@@ -19,7 +19,7 @@ namespace FrendsSave.ViewModels
 
         public FriendsListViewModel()
         {
-
+            Friends = new ObservableCollection<FriendViewModel>();
         }
     }
 }
