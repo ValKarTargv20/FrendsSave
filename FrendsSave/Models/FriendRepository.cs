@@ -23,6 +23,10 @@ namespace FrendsSave.Models
         {
             return database.Get<Friend>(id);
         }
+        public int DeleteItem(int id)
+        {
+            return database.Delete<Friend>(id);
+        }
 
         public int SaveItem(Friend item)
         {

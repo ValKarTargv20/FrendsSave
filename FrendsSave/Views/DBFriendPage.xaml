@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrendsSave.Views.DBFriendPage">
+    <StackLayout>
+        <Label Text="Name2"/>
+        <Entry Text="{Binding Name}"/>
+        <Label Text="Email2"/>
+        <Entry Text="{Binding Email}"/>
+        <Label Text="Phone2"/>
+        <Entry Text="{Binding Phone}"/>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Save2" Clicked="SaveFriend"/>
+            <Button Text="Delete2" Clicked="DeleteFriend" />
+            <Button Text="Cancel2" Clicked="Cancel"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
