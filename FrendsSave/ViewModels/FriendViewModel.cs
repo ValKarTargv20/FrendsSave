@@ -7,16 +7,16 @@ using FrendsSave.Models;
 
 namespace FrendsSave.ViewModels
 {
-    class FriendViewModel : INotifyPropertyChanged
+    class FriendsViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         FriendsListViewModel lvm;
         public Friend Friend;
-        public FriendViewModel()
+        public FriendsViewModel()
         {
             Friend = new Friend();
         }
-        public FriendListViewModel ListViewModel
+        public FriendsListViewModel ListViewModel
         {
             get { return lvm; }
             set

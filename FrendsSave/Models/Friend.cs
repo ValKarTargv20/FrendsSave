@@ -6,8 +6,8 @@ namespace FrendsSave.Models
 {
     public class Friend
     {
-        string Name { get; set; }
-        string Email { get; set; }
-        string Phone { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
     }
 }

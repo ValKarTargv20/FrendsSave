@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrendsSave.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,12 @@ namespace FrendsSave.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FriendPage : ContentPage
     {
-        public FriendPage()
+        public FriendsViewModel ViewModel { get; private set; }
+        public FriendPage(FriendsViewModel vm)
         {
             InitializeComponent();
+            ViewModel = vm;
+            this.BindingContext = ViewModel;
         }
     }
 }

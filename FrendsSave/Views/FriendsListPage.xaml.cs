@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrendsSave.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace FrendsSave.Views
         public FriendsListPage()
         {
             InitializeComponent();
+            BindingContext = new FriendsListViewModel() { Navigation = this.Navigation };
         }
     }
 }
