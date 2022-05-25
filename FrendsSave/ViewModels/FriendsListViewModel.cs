@@ -9,34 +9,34 @@ using Xamarin.Forms;
 
 namespace FrendsSave.ViewModels
 {
-    class FriendsListViewModel : INotifyPropertyChanged
+    public class FriendsListViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<FriendsViewModel> Friends { get; set; }
+        public ObservableCollection<FriendViewModel> Friends { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand CreateFriendCommand { protected set; get; }
         public ICommand DeleteFriendCommand { protected set; get; }
         public ICommand SaveFriendCommand { protected set; get; }
         public ICommand BackCommand { protected set; get; }
-        FriendsViewModel selectedFriend;
+        FriendViewModel selectedFriend;
         public INavigation Navigation { get; set; }
 
         public FriendsListViewModel()
         {
-            Friends = new ObservableCollection<FriendsViewModel>();
+            Friends = new ObservableCollection<FriendViewModel>();
             CreateFriendCommand = new Command (CreateFriend);
             DeleteFriendCommand = new Command(DeleteFriend);
             SaveFriendCommand = new Command(SaveFriend);
             BackCommand = new Command(Back);
         }
 
-        public FriendsViewModel SelectedFriend
+        public FriendViewModel SelectedFriend
         {
             get { return selectedFriend; }
             set
             {
                 if(selectedFriend != value)
                 {
-                    FriendsViewModel tempFriend = value;
+                    FriendViewModel tempFriend = value;
                     selectedFriend = null;
                     OnPropertyChanged("SelectedFriend");
                     Navigation.PushAsync(new FriendPage(tempFriend));
@@ -44,7 +44,7 @@ namespace FrendsSave.ViewModels
             }
         }
 
-        private void OnPropertyChanged(string propName)
+        protected void OnPropertyChanged(string propName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
@@ -57,7 +57,7 @@ namespace FrendsSave.ViewModels
 
         private void SaveFriend(object friendObject)
         {
-            FriendsViewModel friend = friendObject as FriendsViewModel;
+            FriendViewModel friend = friendObject as FriendViewModel;
             if (friend != null && friend.IsValid && !Friends.Contains(friend))
             {
                 Friends.Add(friend);
@@ -67,7 +67,7 @@ namespace FrendsSave.ViewModels
 
         private void DeleteFriend(object friendObject)
         {
-            FriendsViewModel friend = friendObject as FriendsViewModel;
+            FriendViewModel friend = friendObject as FriendViewModel;
             if (friend!= null)
             {
                 Friends.Remove(friend);
@@ -77,7 +77,7 @@ namespace FrendsSave.ViewModels
 
         private void CreateFriend()
         {
-            Navigation.PushAsync(new FriendPage(new FriendsViewModel() { ListViewModel = this }));
+            Navigation.PushAsync(new FriendPage(new FriendViewModel() { ListViewModel = this }));
         }
     }
 }

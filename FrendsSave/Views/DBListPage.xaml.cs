@@ -1,5 +1,4 @@
-﻿using FrendsSave.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,16 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace FrendsSave.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FriendPage : ContentPage
+    public partial class DBListPage : ContentPage
     {
-        public FriendViewModel ViewModel { get; private set; }
-
-        public FriendPage(FriendViewModel vm)
+        public DBListPage()
         {
             InitializeComponent();
-            ViewModel = vm;
-            this.BindingContext = ViewModel;
         }
 
+        private void friendsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
     }
 }

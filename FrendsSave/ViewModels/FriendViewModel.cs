@@ -1,18 +1,14 @@
 ﻿using FrendsSave.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
-using FrendsSave.Models;
 
 namespace FrendsSave.ViewModels
 {
-    class FriendsViewModel : INotifyPropertyChanged
+    public class FriendViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         FriendsListViewModel lvm;
-        public Friend Friend;
-        public FriendsViewModel()
+        public Friend Friend { get; private set; }
+        public FriendViewModel()
         {
             Friend = new Friend();
         }
@@ -73,7 +69,7 @@ namespace FrendsSave.ViewModels
                     (string.IsNullOrEmpty(Phone.Trim())));
             }
         }
-        private void OnPropertyChanged(string propName)
+        protected void OnPropertyChanged(string propName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
